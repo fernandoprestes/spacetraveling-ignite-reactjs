@@ -1,9 +1,9 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
-
-import { getPrismicClient } from '../../services/prismic';
-
+import { FiCalendar, FiClock, FiUser } from 'react-icons/fi';
+import Header from '../../components/Header';
 import commonStyles from '../../styles/common.module.scss';
 import styles from './post.module.scss';
+
+
 
 interface Post {
   first_publication_date: string | null;
@@ -26,9 +26,41 @@ interface PostProps {
   post: Post;
 }
 
-// export default function Post() {
-//   // TODO
-// }
+export default function Post({ post }: PostProps) {
+  return (
+    <>
+      <Header />
+      <img className={styles.banner} src="" alt="banner" />
+      <main className={commonStyles.container}>
+        <section className={styles.post}>
+          <header className={styles.header}>
+            <h1>Titulo grande de exemplo</h1>
+            <ul>
+              <li>
+                <FiCalendar /> 12 mar 2512
+              </li>
+              <li>
+                <FiUser /> Alexa
+              </li>
+              <li>
+                <FiClock /> 5 min
+              </li>
+            </ul>
+          </header>
+          <article>
+            <h2>Titulo secation</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Obcaecati, dolores iure voluptatem repudiandae id laborum quisquam
+              reiciendis? Accusamus quod tenetur distinctio, totam
+              exercitationem in minus corporis alias maiores et tempore.
+            </p>
+          </article>
+        </section>
+      </main>
+    </>
+  );
+}
 
 // export const getStaticPaths = async () => {
 //   const prismic = getPrismicClient();
